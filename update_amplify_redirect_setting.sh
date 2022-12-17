@@ -23,7 +23,7 @@ TRAILING_SLASH=false
 # $3: status code
 # $4: with comma? - default is true
 function writeRedirectSetting (){
-  with_comma=${4:-true};
+  local with_comma=${4:-true};
 
   echo "    {" >> $OUTPUT_FILE
   echo "        \"source\": \"$1\"," >> $OUTPUT_FILE
@@ -83,7 +83,7 @@ done
 # アドホックなリダイレクト設定
 
 ## /settings to /settings/company
-writeRedirectSettingBasedOnTrailingSlashParam "/settings" "/settings/company" 301
+writeRedirectSettingBasedOnTrailingSlashParam "/settings" "/settings/private" 301
 
 # 想定外のパスへのリクエストには404を返す
 writeRedirectSetting "/<*>" "/404.html" 404 false
