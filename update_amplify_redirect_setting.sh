@@ -55,7 +55,7 @@ function writeRedirectSettingBasedOnTrailingSlashParam (){
 
 ##### Amplify Hostingのリダイレクト設定ファイル redirects.json の生成 #####
 
-pages=$(find $ROOT_DIR -type f | sort)
+pages=$(find $ROOT_DIR -type f | sort -r)
 
 echo "[" > $OUTPUT_FILE
 
