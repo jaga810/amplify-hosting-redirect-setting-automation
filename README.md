@@ -4,3 +4,6 @@
 [![Deploy to Amplify](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/jaga810/amplify-hosting-redirect-setting-automation)
 
 このボタンをクリックするとご自身の環境にデプロイできます
+
+# License
+This code is licensed under the MIT-0 License. See the [LISENCE](LISENCE) file.
