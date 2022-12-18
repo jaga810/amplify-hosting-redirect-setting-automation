@@ -55,11 +55,12 @@ function writeRedirectSettingBasedOnTrailingSlashParam (){
 
 ##### Amplify Hostingのリダイレクト設定ファイル redirects.json の生成 #####
 
-pages=$(find $ROOT_DIR -type f | sort -r)
+# pages 配下のファイル名の配列の作成
+pages=$(find $ROOT_DIR -type f | sort -r) # 逆順ソートをすることで、/posts/ が /posts/<id> でなく /posts/ にマッチするようにする
 
 echo "[" > $OUTPUT_FILE
 
-# pages配下のファイル群に応じたリダイレクト設定の生成
+# pages 配下のファイル群に応じたリダイレクト設定の生成
 for page in $pages
 do
   # 除外ファイル群に含まれる場合はスキップ
@@ -93,5 +94,5 @@ echo "]" >> $OUTPUT_FILE
 # リダイレクト設定をAmplifyのビルドログに出力する
 cat $OUTPUT_FILE
 
-##### 書き出したリダイレクト設定をAmplifyに反映する #####
+##### 書き出したリダイレクト設定を Amplify Hosting に反映する #####
 /usr/local/bin/aws amplify update-app --app-id $AWS_APP_ID --custom-rules file://redirections.json
